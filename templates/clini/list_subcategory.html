@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Medicos en piso{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-striped">
+    <th>ID</th>
+    <th>Sub Categoria</th>
+    <th>Medico</th>
+    <th>Area</th>
+
+    {% for subcategory in object_list %}
+      <tr>
+        <td>{{ subcategory.id }}</td>
+        <td>{{ subcategory.categoria }}</td>
+        <td>{{ subcategory.medico.username }}</td>
+        <td>{{ subcategory.description }}</td>
+
+        <td><a href="{% url 'clini:detail_subcategory' subcategory.id %}"><button type="button" name="button" id="btnGuardar" class="btn btn-success btn-circle"><i class="fas fa-save fa-sm"></button></a></td>
+        <td><a href="{% url 'clini:delete_subcategory' subcategory.id %}"><button type="button" name="button" id="btnEliminar" class="btn btn-danger btn-circle"><i class="fas fa-trash fa-sm"></button></a></td>
+        <td><a href="{% url 'clini:update_subcategory' subcategory.id %}"><button type="button" name="button" id="btnEditar" class="btn btn-warning btn-circle"><i class="fas fa-pen fa-sm"></button></a></td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock content %}

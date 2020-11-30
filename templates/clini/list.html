@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Medicos en piso{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-striped">
+    <th>ID</th>
+    <th>Medico</th>
+    <th>Area</th>
+    <th>Entrada</th>
+    <th>Salida</th>
+    {% for category in object_list %}
+      <tr>
+        <td>{{ category.id }}</td>
+        <td>{{ category.medico.username }}</td>
+        <td>{{ category.desc_servicio }}</td>
+        <td>{{ category.hora_actualizado }}</td>
+        <td>{{ category.horario }}</td>
+        <td><a href="{% url 'clini:detail' category.id %}"><button type="button" name="button" id="btnGuardar" class="btn btn-success btn-circle"><i class="fas fa-save fa-sm"></button></a></td>
+        <td><a href="{% url 'clini:delete_category' category.id %}"><button type="button" name="button" id="btnEliminar" class="btn btn-danger btn-circle"><i class="fas fa-trash fa-sm"></button></a></td>
+        <td><a href="{% url 'clini:update' category.id %}"><button type="button" name="button" id="btnEditar" class="btn btn-warning btn-circle"><i class="fas fa-pen fa-sm"></button></a></td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock content %}

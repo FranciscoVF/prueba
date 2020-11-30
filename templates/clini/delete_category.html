@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar medico{% endblock title %}
+
+{% block content %}
+<form class="" action="" method="post">
+  {% csrf_token %}
+  <h6>Desea eliminar al medico?</h6>
+  {{ object.desc_servicio }}
+  <br>
+  <button type="submit" name="delcategory" class="btn btn-danger btn-circle" ><i class="fas fa-save fa-sm"></button>
+  <a href="{% url 'clini:list' %}" class="btn btn-primary btn-circle"><i class="fas fa-arrow-left fa-sm"></a>
+</form>
+
+{% endblock content %}

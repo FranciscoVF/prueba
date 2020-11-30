@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Medicos en Traumatologia{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-striped">
+    <th>ID</th>
+    <th>Medico</th>
+    <th>Area</th>
+    <th>Entrada</th>
+    <th>Salida</th>
+    {% for medi in medicos %}
+      <tr>
+        <td>{{ medi.id }}</td>
+        <td>{{ medi.medico.username }}</td>
+        <td>{{ medi.desc_servicio }}</td>
+        <td>{{ medi.hora_actualizado }}</td>
+        <td>{{ medi.horario }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock content %}

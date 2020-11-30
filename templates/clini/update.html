@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Editar medico{% endblock title %}
+
+{% block content %}
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit" name="new"><i class="fas fa-save fa-sm"></button>
+</form>
+
+{% endblock content %}

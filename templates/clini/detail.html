@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Detalles{% endblock title %}
+
+{% block content %}
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">{{object.desc_servicio}}</h6>
+    </div>
+    <div class="card-body">
+      ID del Medico: {{object.id}}
+      <br>
+      Nombre: {{object.medico.username}}
+      <br>
+      Entrada {{object.hora_actualizado}}
+      <br>
+      Salida: {{object.horario}}
+    </div>
+  </div>
+
+<a href="{% url 'clini:list' %}" class="btn btn-primary">Back</a>
+{% endblock content %}
